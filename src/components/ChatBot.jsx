@@ -10,7 +10,7 @@ function uid() {
 
 export default function ChatBot({
   botName = 'DIYA AI',
-  botAvatar = 'https://www.yatra.com/b2cfrontend/diyaai2.png',
+  botAvatar = 'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExeGNtbDkxdHFwMWVvN3ZoNjV4cXpieTM0a2U2a2Zld3hoaWIxd2dvOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/S60CrN9iMxFlyp7uM8/giphy.gif',
   initialOpen = false,
   initialMessages,
   onSend,
