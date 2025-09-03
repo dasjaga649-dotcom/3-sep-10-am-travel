@@ -194,7 +194,7 @@ export default function ChatBot({
         .diyachat-window.max { width: min(640px, 96vw); max-height: 86vh }
 
         .diyachat-header { display: flex; justify-content: space-between; align-items: center; padding: .5rem .5rem; background: var(--color-white); color: var(--color-primary) }
-        .diyachat-title { font-weight: 700; font-size: .95rem; line-height: 1.1; background: linear-gradient(90deg, #1192EE 10%, #FF9D00 100%); -webkit-background-clip: text; background-clip: text; color: transparent }
+        .diyachat-title { font-weight: 700; font-size: .95rem; line-height: 1.1; display: inline-block; background: linear-gradient(90deg, #1192EE 10%, #FF9D00 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent }
         .diyachat-actions { display: flex; gap: .25rem; align-items: center }
         .diyachat-iconbtn { padding: .35rem; border-radius: .5rem; background: transparent; border: none; color: var(--color-primary); transition: background .2s ease; cursor: pointer }
         .diyachat-iconbtn:hover { background: rgba(17,146,238,.08) }
@@ -265,7 +265,7 @@ export default function ChatBot({
             <div className="d-flex align-items-center gap-2">
               <div className="avatar"><img src={botAvatar} alt="Chatbot Logo" className="w-100 h-100 object-fit-cover" /></div>
               <div className="flex-grow-1">
-                <div className="diyachat-title text-truncate">{botName}</div>
+                <div className="diyachat-title">{botName}</div>
               </div>
             </div>
             <div className="diyachat-actions">
