@@ -28,8 +28,13 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <div>
+        {/* Chat widget is fixed and overlays the page */}
+      </div>
+      <ChatBot />
     </>
   )
 }
 
+import ChatBot from './components/ChatBot.jsx'
 export default App
