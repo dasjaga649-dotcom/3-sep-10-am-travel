@@ -9,7 +9,7 @@ function uid() {
 }
 
 export default function ChatBot({
-  botName = 'DIYA AI',
+  botName = 'Husqy Ai',
   botAvatar = 'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExeGNtbDkxdHFwMWVvN3ZoNjV4cXpieTM0a2U2a2Zld3hoaWIxd2dvOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/S60CrN9iMxFlyp7uM8/giphy.gif',
   initialOpen = false,
   initialMessages,
@@ -194,7 +194,7 @@ export default function ChatBot({
         .diyachat-window.max { width: min(640px, 96vw); max-height: 86vh }
 
         .diyachat-header { display: flex; justify-content: space-between; align-items: center; padding: .5rem .5rem; background: var(--color-white); color: var(--color-primary) }
-        .diyachat-title { font-weight: 700; font-size: .95rem; line-height: 1.1; color: var(--color-primary) }
+        .diyachat-title { font-weight: 700; font-size: .95rem; line-height: 1.1; background: linear-gradient(90deg, #1192EE 10%, #FF9D00 100%); -webkit-background-clip: text; background-clip: text; color: transparent }
         .diyachat-actions { display: flex; gap: .25rem; align-items: center }
         .diyachat-iconbtn { padding: .35rem; border-radius: .5rem; background: transparent; border: none; color: var(--color-primary); transition: background .2s ease; cursor: pointer }
         .diyachat-iconbtn:hover { background: rgba(17,146,238,.08) }
