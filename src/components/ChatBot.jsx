@@ -64,6 +64,10 @@ export default function ChatBot({
     if (isOpen) scrollToBottom(false)
   }, [isOpen])
 
+  useEffect(() => {
+    if (isOpen) scrollToBottom(false)
+  }, [isMax])
+
   function resetChat() {
     setMessages([
       {
@@ -191,7 +195,7 @@ export default function ChatBot({
 
         .diyachat-window { width: 380px; max-height: 76vh; background: var(--color-light); border: 1px solid var(--color-light); border-radius: 12px; overflow: hidden; box-shadow: 0 16px 48px rgba(0,0,0,.24); transform-origin: bottom right; opacity: 0; transform: translateY(12px) scale(.98); transition: opacity .2s ease, transform .2s ease; display: flex; flex-direction: column; min-height: 0 }
         .diyachat-window.open { opacity: 1; transform: translateY(0) scale(1) }
-        .diyachat-window.max { width: min(640px, 96vw); max-height: 86vh }
+        .diyachat-window.max { position: fixed; inset: 0; width: 100vw; height: 100vh; max-height: 100vh; border-radius: 0; z-index: 1050 }
 
         .diyachat-header { display: flex; justify-content: space-between; align-items: center; padding: .5rem .5rem; background: var(--color-white); color: var(--color-primary) }
         .diyachat-title { font-weight: 700; font-size: .95rem; line-height: 1.1; display: inline-block; background: linear-gradient(90deg, #1192EE 10%, #FF9D00 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent }
@@ -278,7 +282,7 @@ export default function ChatBot({
                   <line x1="14" x2="14" y1="11" y2="17"></line>
                 </svg>
               </button>
-              <button className="diyachat-iconbtn" title="Maximize" aria-label="Maximize chat" onClick={() => setIsMax((v) => !v)}>
+              <button className="diyachat-iconbtn" title={isMax ? 'Restore' : 'Maximize'} aria-label={isMax ? 'Restore chat size' : 'Maximize chat'} onClick={() => setIsMax((v) => !v)}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M15 3h6v6"></path>
                   <path d="m21 3-7 7"></path>
