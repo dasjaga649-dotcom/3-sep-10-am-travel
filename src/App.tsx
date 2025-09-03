@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import ChatBot from './components/ChatBot.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -36,5 +37,4 @@ function App() {
   )
 }
 
-import ChatBot from './components/ChatBot.jsx'
 export default App
