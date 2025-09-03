@@ -189,13 +189,15 @@ export default function ChatBot({
       <style>{`
         .diyachat-root { --color-primary: ${BLUE}; --color-accent: ${ORANGE}; --color-accent-2: ${ORANGE_ALT}; --color-white: #ffffff; --color-light: #eef2f6; --color-secondary: ${ORANGE}; --color-text: #0f172a }
 
-        .diyachat-floating { position: fixed; right: 1rem; bottom: 1rem; z-index: 1040 }
+        .diyachat-floating { position: fixed; right: 1rem; bottom: max(1rem, env(safe-area-inset-bottom)); z-index: 1040 }
         .diyachat-open-btn { background: var(--color-primary); color: #fff; width: 56px; height: 56px; border-radius: 50%; border: none; box-shadow: 0 10px 20px rgba(0,0,0,.2); transition: transform .2s ease, box-shadow .2s ease }
         .diyachat-open-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,.24) }
 
-        .diyachat-window { width: 380px; max-height: 76vh; background: var(--color-light); border: 1px solid var(--color-light); border-radius: 12px; overflow: hidden; box-shadow: 0 16px 48px rgba(0,0,0,.24); transform-origin: bottom right; opacity: 0; transform: translateY(12px) scale(.98); transition: opacity .2s ease, transform .2s ease; display: flex; flex-direction: column; min-height: 0 }
+        .diyachat-window { width: 360px; height: 70vh; background: var(--color-light); border: 1px solid var(--color-light); border-radius: 12px; overflow: hidden; box-shadow: 0 16px 48px rgba(0,0,0,.24); transform-origin: bottom right; opacity: 0; transform: translateY(12px) scale(.98); transition: opacity .2s ease, transform .2s ease; display: flex; flex-direction: column; min-height: 0 }
         .diyachat-window.open { opacity: 1; transform: translateY(0) scale(1) }
         .diyachat-window.max { position: fixed; inset: 0; width: 100vw; height: 100vh; max-height: 100vh; border-radius: 0; z-index: 1050 }
+.diyachat-window.max .diyachat-header { padding-top: calc(.5rem + env(safe-area-inset-top)) }
+.diyachat-window.max .composer { padding-bottom: calc(.75rem + env(safe-area-inset-bottom)) }
 
         .diyachat-header { display: flex; justify-content: space-between; align-items: center; padding: .5rem .5rem; background: var(--color-white); color: var(--color-primary) }
         .diyachat-title { font-weight: 700; font-size: .95rem; line-height: 1.1; display: inline-block; background: linear-gradient(90deg, #1192EE 10%, #FF9D00 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent }
@@ -249,7 +251,7 @@ export default function ChatBot({
         .btn-send { right: .5rem }
         .btn-send:disabled { color: #9ca3af; cursor: not-allowed }
 
-        @media (max-width: 576px) { .diyachat-window { width: calc(100vw - 1rem); max-height: 80vh } }
+        @media (max-width: 576px) { .diyachat-window { width: calc(100vw - 1rem); height: 80vh } }
         .fade-in { animation: fadein .25s ease both }
         @keyframes fadein { from { opacity: 0; transform: translateY(6px) } to { opacity: 1; transform: translateY(0) } }
       `}</style>
