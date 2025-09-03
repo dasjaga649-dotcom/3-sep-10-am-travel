@@ -33,12 +33,36 @@ export default function ChatBot({
   const [typing, setTyping] = useState(false)
   const containerRef = useRef(null)
 
+  function scrollToBottom(smooth = false) {
+    const el = containerRef.current
+    if (!el) return
+    const doScroll = () => {
+      try {
+        el.scrollTo({ top: el.scrollHeight, behavior: smooth ? 'smooth' : 'auto' })
+      } catch {
+        el.scrollTop = el.scrollHeight
+      }
+    }
+    if (typeof window !== 'undefined' && 'requestAnimationFrame' in window) {
+      requestAnimationFrame(() => {
+        doScroll()
+        setTimeout(doScroll, 0)
+      })
+    } else {
+      doScroll()
+      setTimeout(doScroll, 0)
+    }
+  }
+
   useMemo(() => ({ ORANGE, ORANGE_ALT, BLUE }), [])
 
   useEffect(() => {
-    if (!containerRef.current) return
-    containerRef.current.scrollTop = containerRef.current.scrollHeight
+    scrollToBottom(true)
   }, [messages, typing])
+
+  useEffect(() => {
+    if (isOpen) scrollToBottom(false)
+  }, [isOpen])
 
   function resetChat() {
     setMessages([
@@ -298,7 +322,7 @@ export default function ChatBot({
                             <div className="result-card">
                               <div className="row g-0">
                                 <div className="col-4">
-                                  <img src={r.image} alt={r.title} className="img-fluid h-100 object-fit-cover" />
+                                  <img src={r.image} alt={r.title} className="img-fluid h-100 object-fit-cover" onLoad={() => scrollToBottom(true)} />
                                 </div>
                                 <div className="col-8">
                                   <div className="p-2">
